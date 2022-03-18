@@ -57,7 +57,11 @@ namespace Sorts.Tests
         [Test]
         public void ShellSortTest()
         {
+            ShellSort<int> shellSort = new(_source);
 
+            shellSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]
