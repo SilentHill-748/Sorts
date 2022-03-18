@@ -16,9 +16,7 @@ namespace Sorts
 
         protected void Swap(int firstIndex, int secondIndex)
         {
-            T temp = _array[firstIndex];
-            _array[firstIndex] = _array[secondIndex];
-            _array[secondIndex] = temp;
+            (_array[secondIndex], _array[firstIndex]) = (_array[firstIndex], _array[secondIndex]);
         }
     }
 }
