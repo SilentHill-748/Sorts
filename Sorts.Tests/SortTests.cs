@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using Sorts;
-
 namespace Sorts.Tests
 {
     internal class SortTests
@@ -49,7 +47,11 @@ namespace Sorts.Tests
         [Test]
         public void InsertionSortTest()
         {
+            InsertionSort<int> insertionSort = new(_source);
 
+            insertionSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]
