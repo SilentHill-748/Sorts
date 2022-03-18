@@ -29,7 +29,11 @@ namespace Sorts.Tests
         [Test]
         public void BubbleSortTest()
         {
+            BubbleSort<int> bubbleSort = new(_source);
 
+            bubbleSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]

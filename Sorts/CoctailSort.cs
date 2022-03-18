@@ -8,7 +8,7 @@ namespace Sorts
         public CoctailSort(T[] array) : base(array) { }
 
 
-        public void Sort()
+        public override void Sort()
         {
             int left = 0, right = _array.Length - 1;
 
