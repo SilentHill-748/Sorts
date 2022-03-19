@@ -80,6 +80,16 @@ namespace Sorts.Tests
         }
 
         [Test]
+        public void SelectionSortTest()
+        {
+            SelectionSort<int> selectionSort = new(_source);
+
+            selectionSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
+        }
+
+        [Test]
         public void TreeSortTest()
         {
 
