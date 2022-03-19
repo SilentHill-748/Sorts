@@ -19,36 +19,26 @@ namespace Sorts
             }
         }
 
-        private int MoveLeft(int start, int end)
+        private void MoveLeft(int start, int end)
         {
-            int swaps = 0;
-
             for (int i = start; i > end; i--)
             {
                 if (_array[i].CompareTo(_array[i - 1]) == -1)
                 {
-                    swaps++;
                     Swap(i, i - 1);
                 }
             }
-
-            return swaps;
         }
 
-        private int MoveRight(int start, int end)
+        private void MoveRight(int start, int end)
         {
-            int swaps = 0;
-
             for (int i = start; i < end; i++)
             {
                 if (_array[i].CompareTo(_array[i + 1]) == 1)
                 {
-                    swaps++;
                     Swap(i, i + 1);
                 }
             }
-
-            return swaps;
         }
     }
 }
