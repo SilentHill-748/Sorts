@@ -17,7 +17,7 @@ namespace Sorts
 
                 // while count of left items more than 1
                 // and [item] not less than previos items in left collection.
-                while (j > 0 && _array[j - 1].CompareTo(item) == -1)
+                while (j > 0 && _array[j - 1].CompareTo(item) == 1)
                 {
                     Swap(j - 1, j);
                     j--;

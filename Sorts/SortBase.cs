@@ -18,10 +18,10 @@ namespace Sorts
         {
             // Bubble sort as default.
             for (int i = 0; i < _array.Length; i++)
-                for (int j = _array.Length - 1; j > 0; j--)
+                for (int j = 0; j < _array.Length - 1; j++)
                 {
-                    if (_array[i].CompareTo(_array[j]) == 1)
-                        Swap(i, j);
+                    if (_array[j].CompareTo(_array[j + 1]) == 1)
+                        Swap(j, j + 1);
                 }
         }
 

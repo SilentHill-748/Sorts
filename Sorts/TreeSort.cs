@@ -14,7 +14,12 @@ namespace Sorts
         {
             // BinaryTreeSearch is my version of popular data structer.
             BinarySearchTree<T> binarySearchTree = new(_array);
-            _array = binarySearchTree.Inorder().ToArray();
+            
+            // This code slower, but I'm test quality of completion.
+            var result = binarySearchTree.Inorder().ToArray();
+
+            for (int i = 0; i < result.Length; i++)
+                _array[i] = result[i];
         }
     }
 }

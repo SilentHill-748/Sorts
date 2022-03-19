@@ -14,7 +14,12 @@ namespace Sorts
         public override void Sort()
         {
             BinaryHeap<T> heap = new(_array);
-            _array = heap.Order().ToArray();
+
+            // This code slower, but I'm test quality of completion.
+            var result = heap.Order().ToArray();
+
+            for (int i = 0, j = result.Length - 1; i < result.Length; i++, j--)
+                _array[i] = result[j];
         }
     }
 }

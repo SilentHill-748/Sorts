@@ -36,7 +36,8 @@ namespace Sorts.Tests
         public void BaseSortTest()
         {
             Array.Sort(_source);
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -46,7 +47,8 @@ namespace Sorts.Tests
 
             bubbleSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -56,7 +58,8 @@ namespace Sorts.Tests
 
             coctailSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -66,7 +69,8 @@ namespace Sorts.Tests
 
             insertionSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -76,7 +80,8 @@ namespace Sorts.Tests
 
             shellSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -86,7 +91,8 @@ namespace Sorts.Tests
 
             selectionSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -96,7 +102,8 @@ namespace Sorts.Tests
 
             treeSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
@@ -106,7 +113,8 @@ namespace Sorts.Tests
 
             heapSort.Sort();
 
-            CollectionAssert.AreEquivalent(_sortedSource, _source);
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
