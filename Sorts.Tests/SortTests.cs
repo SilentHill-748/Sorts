@@ -102,7 +102,11 @@ namespace Sorts.Tests
         [Test]
         public void HeapSortTest()
         {
+            HeapSort<int> heapSort = new(_source);
 
+            heapSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]
