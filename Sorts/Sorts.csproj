@@ -2,7 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DataStructures">
+      <HintPath>..\..\DataStructures-new\DataStructures\bin\Release\net6.0\DataStructures.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

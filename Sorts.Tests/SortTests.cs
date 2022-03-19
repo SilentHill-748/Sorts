@@ -92,7 +92,11 @@ namespace Sorts.Tests
         [Test]
         public void TreeSortTest()
         {
+            TreeSort<int> treeSort = new(_source);
 
+            treeSort.Sort();
+
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]
