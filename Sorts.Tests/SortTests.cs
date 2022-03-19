@@ -1,27 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 
 using NUnit.Framework;
 
 namespace Sorts.Tests
 {
-    internal class SortTests
+    public class SortTests
     {
         private readonly int[] _source;
-        private readonly SortedSet<int> _sortedSource;
+        private int[] _sortedSource;
 
 
         public SortTests()
         {
             _source = new int[10000];
-            _sortedSource = new SortedSet<int>();
+            _sortedSource = Array.Empty<int>();
         }
 
 
         [SetUp]
-        public void InitializeTestParameters()
+        public void Init()
         {
-            FillRandom();
+            Random rnd = new();
+
+            Array.Clear(_source);
+            Array.Clear(_sortedSource);
+
+            for (int i = 0; i < _source.Length; i++)
+                _source[i] = rnd.Next(0, 10000);
+
+            _sortedSource = _source.OrderBy(x => x).ToArray();
+        }
+
+        [Test]
+        public void BaseSortTest()
+        {
+            Array.Sort(_source);
+            CollectionAssert.AreEquivalent(_sortedSource, _source);
         }
 
         [Test]
@@ -98,19 +113,6 @@ namespace Sorts.Tests
         public void QuickSortTest()
         {
 
-        }
-
-        private void FillRandom()
-        {
-            Random random = new();
-
-            for (int i = 0; i < _source.Length; i++)
-            {
-                int item = random.Next(int.MinValue, int.MaxValue);
-
-                _source[i] = item;
-                _sortedSource.Add(item);
-            }
         }
     }
 }
