@@ -129,8 +129,25 @@ namespace Sorts.Tests
         }
 
         [Test]
-        public void RadixSortTest()
+        public void LsdRadixSortTest()
         {
+            LsdRedixSort lsdRadixSort = new(_source);
+
+            lsdRadixSort.Sort();
+
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
+        }
+
+        [Test]
+        public void MsdRedixSortTest()
+        {
+            MsdRedixSort msdRadixSort = new(_source);
+
+            msdRadixSort.Sort();
+
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
 
         }
 
