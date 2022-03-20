@@ -120,7 +120,12 @@ namespace Sorts.Tests
         [Test]
         public void GnomeSortTest()
         {
+            GnomeSort<int> gnomeSort = new(_source);
 
+            gnomeSort.Sort();
+
+            for (int i = 0; i < _source.Length; i++)
+                Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
         [Test]
