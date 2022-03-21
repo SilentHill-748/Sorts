@@ -170,7 +170,13 @@ namespace Sorts.Tests
         [Test]
         public void MergeSortTest()
         {
+            MergeSort<int> mergeSort = new(_source);
 
+            mergeSort.Sort();
+            List<int> collection = mergeSort.SortedCollection;
+
+            for (int i = 0; i < _sortedSource.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
