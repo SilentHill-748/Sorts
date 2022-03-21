@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using DataStructures;
 
-namespace Sorts
+namespace Sorts.Algorithms
 {
     public class TreeSort<T> : SortBase<T>
         where T : IComparable<T>

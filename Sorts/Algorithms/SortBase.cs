@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sorts
+namespace Sorts.Algorithms
 {
     public abstract class SortBase<T>
         where T : IComparable<T>

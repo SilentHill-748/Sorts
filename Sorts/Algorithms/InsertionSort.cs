@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sorts
+namespace Sorts.Algorithms
 {
     public class InsertionSort<T> : SortBase<T>
         where T : IComparable<T>

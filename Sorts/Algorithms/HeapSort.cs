@@ -4,7 +4,7 @@ using System.Linq;
 
 using DataStructures;
 
-namespace Sorts
+namespace Sorts.Algorithms
 {
     public class HeapSort<T> : SortBase<T>
         where T : IComparable<T>

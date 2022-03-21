@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sorts
+namespace Sorts.Algorithms
 {
     public class LsdRedixSort : SortBase<int>
     {

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
+using Sorts.Algorithms;
+
 namespace Sorts.Tests
 {
     public class SortTests
