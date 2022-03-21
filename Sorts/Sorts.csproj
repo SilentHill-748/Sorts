@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DataStructures">
       <HintPath>..\..\DataStructures-new\DataStructures\bin\Release\net6.0\DataStructures.dll</HintPath>
     </Reference>

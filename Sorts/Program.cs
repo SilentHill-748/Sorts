@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+
+using Sorts.Benchmarks;
+using Sorts.Algorithms;
+
+using BenchmarkDotNet.Running;
 
 namespace Sorts
 {
@@ -6,7 +12,7 @@ namespace Sorts
     {
         static void Main(string[] args)
         {
-            
+            BenchmarkRunner.Run<SortBenchmark>();
         }
     }
 }
