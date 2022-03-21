@@ -182,7 +182,13 @@ namespace Sorts.Tests
         [Test]
         public void QuickSortTest()
         {
+            QuickSort<int> quickSort = new(_source);
 
+            quickSort.Sort();
+            List<int> collection = quickSort.SortedCollection;
+
+            for (int i = 0; i < _sortedSource.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
     }
 }
