@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -7,14 +8,14 @@ namespace Sorts.Tests
 {
     public class SortTests
     {
-        private readonly int[] _source;
-        private int[] _sortedSource;
+        private readonly List<int> _source;
+        private List<int> _sortedSource;
 
 
         public SortTests()
         {
-            _source = new int[10000];
-            _sortedSource = Array.Empty<int>();
+            _source = new List<int>(10000);
+            _sortedSource = new List<int>();
         }
 
 
@@ -23,20 +24,21 @@ namespace Sorts.Tests
         {
             Random rnd = new();
 
-            Array.Clear(_source);
-            Array.Clear(_sortedSource);
+            _source.Clear();
+            _sortedSource.Clear();
 
-            for (int i = 0; i < _source.Length; i++)
-                _source[i] = rnd.Next(0, 10000);
+            for (int i = 0; i < 10000; i++)
+                _source.Add(rnd.Next(0, 10000));
 
-            _sortedSource = _source.OrderBy(x => x).ToArray();
+            _sortedSource = _source.OrderBy(x => x).ToList();
         }
 
         [Test]
         public void BaseSortTest()
         {
-            Array.Sort(_source);
-            for (int i = 0; i < _source.Length; i++)
+            _source.Sort();
+
+            for (int i = 0; i < _source.Count; i++)
                 Assert.AreEqual(_sortedSource[i], _source[i]);
         }
 
@@ -46,9 +48,10 @@ namespace Sorts.Tests
             BubbleSort<int> bubbleSort = new(_source);
 
             bubbleSort.Sort();
+            List<int> collection = bubbleSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -57,9 +60,10 @@ namespace Sorts.Tests
             CoctailSort<int> coctailSort = new(_source);
 
             coctailSort.Sort();
+            List<int> collection = coctailSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -68,9 +72,10 @@ namespace Sorts.Tests
             InsertionSort<int> insertionSort = new(_source);
 
             insertionSort.Sort();
+            List<int> collection = insertionSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -79,9 +84,10 @@ namespace Sorts.Tests
             ShellSort<int> shellSort = new(_source);
 
             shellSort.Sort();
+            List<int> collection = shellSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -90,9 +96,10 @@ namespace Sorts.Tests
             SelectionSort<int> selectionSort = new(_source);
 
             selectionSort.Sort();
+            List<int> collection = selectionSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -101,9 +108,10 @@ namespace Sorts.Tests
             TreeSort<int> treeSort = new(_source);
 
             treeSort.Sort();
+            List<int> collection = treeSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -113,8 +121,11 @@ namespace Sorts.Tests
 
             heapSort.Sort();
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            List<int> collection = heapSort.SortedCollection;
+            collection.Reverse();
+
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -123,9 +134,10 @@ namespace Sorts.Tests
             GnomeSort<int> gnomeSort = new(_source);
 
             gnomeSort.Sort();
+            List<int> collection = gnomeSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -134,9 +146,10 @@ namespace Sorts.Tests
             LsdRedixSort lsdRadixSort = new(_source);
 
             lsdRadixSort.Sort();
+            List<int> collection = lsdRadixSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
         }
 
         [Test]
@@ -145,9 +158,10 @@ namespace Sorts.Tests
             MsdRedixSort msdRadixSort = new(_source);
 
             msdRadixSort.Sort();
+            List<int> collection = msdRadixSort.SortedCollection;
 
-            for (int i = 0; i < _source.Length; i++)
-                Assert.AreEqual(_sortedSource[i], _source[i]);
+            for (int i = 0; i < _source.Count; i++)
+                Assert.AreEqual(_sortedSource[i], collection[i]);
 
         }
 

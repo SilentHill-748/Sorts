@@ -1,24 +1,25 @@
 ﻿using System;
-
+using System.Collections.Generic;
+ 
 namespace Sorts
 {
     public class ShellSort<T> : SortBase<T>
         where T : IComparable<T>
     {
-        public ShellSort(T[] array) : base(array) { }
+        public ShellSort(List<T> list) : base(list) { }
 
 
         public override void Sort()
         {
-            int step = _array.Length / 2;
+            int step = _list.Count / 2;
 
             while (step > 0)
             {
-                for (int i = step; i < _array.Length; i++)
+                for (int i = step; i < _list.Count; i++)
                 {
                     int j = i;
 
-                    while ((j >= step) && _array[j - step].CompareTo(_array[j]) == 1)
+                    while ((j >= step) && _list[j - step].CompareTo(_list[j]) == 1)
                     {
                         Swap(j - step, j);
                         j -= step;
@@ -26,6 +27,8 @@ namespace Sorts
                 }
                 step /= 2;
             }
+
+            SortedCollection = _list;
         }
     }
 }

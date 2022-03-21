@@ -6,50 +6,60 @@ namespace Sorts
 {
     public class LsdRedixSort : SortBase<int>
     {
-        private readonly List<Queue<int>> _numberClasses;
-        private int[] _localArray;
-
-        public LsdRedixSort(int[] array) : base(array)
-        {
-            _numberClasses = new List<Queue<int>>();
-
-            for (int i = 0; i < 10; i++)
-                _numberClasses.Add(new Queue<int>());
-
-            _localArray = array;
-        }
+        public LsdRedixSort(List<int> list) : base(list) { }
 
 
         public override void Sort()
         {
-            int numOfDigs = (int)Math.Log10(_localArray.Max()) + 1;
+            List<List<int>> numberClasses = InitNumberClasses();
 
-            for (int i = 0; i < numOfDigs; i++)
-            {
-                for (int j = 0; j < _localArray.Length; j++)
-                {
-                    int rank = _localArray[j] % (int)Math.Pow(10, i + 1) / (int)Math.Pow(10, i);
-                    
-                    _numberClasses[rank].Enqueue(_localArray[j]);
-                }
+            int numOfDigs = (int)Math.Log10(_list.Max()) + 1;
 
-                _localArray = GetNewArray();
-            }
+            FillNumberClasses(numberClasses, numOfDigs);
 
-            Array.Copy(_localArray, 0, _array, 0, _localArray.Length);
+            SortedCollection = _list;
         }
 
-        private int[] GetNewArray()
+        private void FillNumberClasses(List<List<int>> numberClasses, int numOfDigs)
+        {
+            for (int i = 0; i < numOfDigs; i++)
+            {
+                for (int j = 0; j < _list.Count; j++)
+                {
+                    int rank = Convert.ToInt32(
+                        Math.Truncate(
+                            _list[j] % 
+                            Math.Pow(10, i + 1) / 
+                            Math.Pow(10, i)));
+
+                    numberClasses[rank].Add(_list[j]);
+                }
+
+                _list = GetNewArray(numberClasses);
+            }
+        }
+
+        private static List<List<int>> InitNumberClasses()
+        {
+            var numberClasses = new List<List<int>>();
+
+            for (int i = 0; i < 10; i++)
+                numberClasses.Add(new List<int>());
+
+            return numberClasses;
+        }
+
+        private static List<int> GetNewArray(List<List<int>> numberClasses)
         {
             List<int> result = new();
 
-            foreach (Queue<int> group in _numberClasses)
+            foreach (List<int> group in numberClasses)
             {
-                while (group.Count > 0)
-                    result.Add(group.Dequeue());
+                result.AddRange(group);
+                group.Clear();
             }
 
-            return result.ToArray();
+            return result;
         }
     }
 }

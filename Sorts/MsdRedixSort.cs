@@ -1,46 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sorts
 {
     public class MsdRedixSort : SortBase<int>
     {
-        private List<int> _localList;
+        private List<List<int>>? _numberClasses;
 
 
-        public MsdRedixSort(int[] array) : base(array)
-        {
-            _localList = new List<int>();
-            _localList.AddRange(array);
-        }
+        public MsdRedixSort(List<int> list) : base(list) { }
 
 
         public override void Sort()
         {
-            int numOfDigs = (int)Math.Log10(_localList.Max()) + 1;
+            int numOfDigs = (int)Math.Log10(_list.Max()) + 1;
 
-            _localList = SortCollection(_localList, numOfDigs - 1);
+            SortedCollection = SortCollection(_list, numOfDigs - 1);
 
-            for (int i = 0; i < _localList.Count; i++)
-                _array[i] = _localList[i];
         }
 
         private List<int> SortCollection(List<int> list, int step)
         {
-            List<Queue<int>> numberClasses = InitNumberClassesCollections();
+            _numberClasses = InitNumberClassesCollections();
 
-            FillNumberClasses(list, step, numberClasses);
+            FillNumberClasses(list, step);
 
             list.Clear();
 
-            foreach (Queue<int> group in numberClasses)
+            foreach (List<int> group in _numberClasses)
             {
                 if (group.Count > 1 && step > 0)
                 {
-                    list.AddRange(SortCollection(group.ToList(), step - 1));
+                    list.AddRange(SortCollection(group, step - 1));
                 }
                 else
                     list.AddRange(group);
@@ -49,17 +41,17 @@ namespace Sorts
             return list;
         }
 
-        private static List<Queue<int>> InitNumberClassesCollections()
+        private static List<List<int>> InitNumberClassesCollections()
         {
-            List<Queue<int>> numberClasses = new();
+            List<List<int>> numberClasses = new();
 
             for (int i = 0; i < 10; i++)
-                numberClasses.Add(new Queue<int>());
+                numberClasses.Add(new List<int>());
 
             return numberClasses;
         }
 
-        private static void FillNumberClasses(List<int> list, int step, List<Queue<int>> numberClasses)
+        private void FillNumberClasses(List<int> list, int step)
         {
             for (int j = 0; j < list.Count; j++)
             {
@@ -68,7 +60,7 @@ namespace Sorts
                     Math.Pow(10, step + 1) /
                     Math.Pow(10, step)));
 
-                numberClasses[rank].Enqueue(list[j]);
+                _numberClasses[rank].Add(list[j]);
             }
         }
     }
