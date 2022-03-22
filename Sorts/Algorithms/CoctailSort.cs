@@ -6,27 +6,23 @@ namespace Sorts.Algorithms
     public class CoctailSort<T> : SortBase<T>
         where T : IComparable<T>
     {
-        public CoctailSort(List<T> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<T> collection)
         {
-            int left = 0, right = _list.Count - 1;
+            Collection = collection;
+            int left = 0, right = collection.Count - 1;
 
             while (left < right)
             {
                 MoveRight(left, right--);
                 MoveLeft(right, left++);
             }
-
-            SortedCollection = _list;
         }
 
         private void MoveLeft(int start, int end)
         {
             for (int i = start; i > end; i--)
             {
-                if (_list[i].CompareTo(_list[i - 1]) == -1)
+                if (Collection[i].CompareTo(Collection[i - 1]) == -1)
                 {
                     Swap(i, i - 1);
                 }
@@ -37,7 +33,7 @@ namespace Sorts.Algorithms
         {
             for (int i = start; i < end; i++)
             {
-                if (_list[i].CompareTo(_list[i + 1]) == 1)
+                if (Collection[i].CompareTo(Collection[i + 1]) == 1)
                 {
                     Swap(i, i + 1);
                 }

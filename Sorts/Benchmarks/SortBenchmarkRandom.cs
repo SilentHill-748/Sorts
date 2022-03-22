@@ -33,9 +33,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            BubbleSort<int> sort = new(collection);
+            BubbleSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -43,9 +43,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            CoctailSort<int> sort = new(collection);
+            CoctailSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -53,9 +53,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            SelectionSort<int> sort = new(collection);
+            SelectionSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -63,9 +63,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            GnomeSort<int> sort = new(collection);
+            GnomeSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -73,9 +73,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            InsertionSort<int> sort = new(collection);
+            InsertionSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -83,9 +83,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            ShellSort<int> sort = new(collection);
+            ShellSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -93,9 +93,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            TreeSort<int> sort = new(collection);
+            TreeSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -103,9 +103,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            HeapSort<int> sort = new(collection);
+            HeapSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -113,9 +113,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            LsdRedixSort sort = new(collection);
+            LsdRedixSort sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -123,9 +123,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            MsdRedixSort sort = new(collection);
+            MsdRedixSort sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -133,9 +133,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            MergeSort<int> sort = new(collection);
+            MergeSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
 
         [Benchmark]
@@ -143,9 +143,9 @@ namespace Sorts.Benchmarks
         {
             var collection = CollectionHelper.GetCollection(_size);
 
-            QuickSort<int> sort = new(collection);
+            QuickSort<int> sort = new();
 
-            sort.Sort();
+            sort.Sort(collection);
         }
     }
 }

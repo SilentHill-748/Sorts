@@ -7,15 +7,12 @@ namespace Sorts.Algorithms
     public class MergeSort<T> : SortBase<T>
         where T: IComparable<T>
     {
-        public MergeSort(List<T> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<T> collection)
         {
-            SortedCollection = Sort(_list);
+            Collection = MSort(collection);
         }
 
-        private List<T> Sort(List<T> collection)
+        private List<T> MSort(List<T> collection)
         {
             if (collection.Count == 1)
                 return collection;
@@ -25,7 +22,7 @@ namespace Sorts.Algorithms
             var left = collection.Take(mid).ToList();
             var right = collection.Skip(mid).ToList();
 
-            return Merge(Sort(left), Sort(right));
+            return Merge(MSort(left), MSort(right));
         }
 
         private static List<T> Merge(List<T> left, List<T> right)

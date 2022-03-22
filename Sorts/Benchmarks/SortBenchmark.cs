@@ -56,85 +56,85 @@ namespace Sorts.Benchmarks
         [Benchmark]
         public void BubbleSort()
         {
-            BubbleSort<int> bubbleSort = new(_bubbleSortSource);
-            bubbleSort.Sort();
+            BubbleSort<int> bubbleSort = new();
+            bubbleSort.Sort(_bubbleSortSource);
         }
 
         [Benchmark]
         public void CoctailSort()
         {
-            CoctailSort<int> coctailSort = new(_coctailSortSource);
-            coctailSort.Sort();
+            CoctailSort<int> coctailSort = new();
+            coctailSort.Sort(_coctailSortSource);
         }
 
         [Benchmark]
         public void GnomeSort()
         {
-            GnomeSort<int> gnomeSort = new(_gnomeSortSource);
-            gnomeSort.Sort();
+            GnomeSort<int> gnomeSort = new();
+            gnomeSort.Sort(_gnomeSortSource);
         }
 
         [Benchmark]
         public void HeapSort()
         {
-            HeapSort<int> heapSort = new(_heapSortSource);
-            heapSort.Sort();
+            HeapSort<int> heapSort = new();
+            heapSort.Sort(_heapSortSource);
         }
 
         [Benchmark]
         public void InsertionSort()
         {
-            InsertionSort<int> insertionSort = new(_insertionSortSource);
-            insertionSort.Sort();
+            InsertionSort<int> insertionSort = new();
+            insertionSort.Sort(_insertionSortSource);
         }
 
         [Benchmark]
         public void LsdRedixSort()
         {
-            LsdRedixSort lsdRedixSort = new(_lsdRedixSortSource);
-            lsdRedixSort.Sort();
+            LsdRedixSort lsdRedixSort = new();
+            lsdRedixSort.Sort(_lsdRedixSortSource);
         }
 
         [Benchmark]
         public void MergeSort()
         {
-            MergeSort<int> mergeSort = new(_mergeSortSource);
-            mergeSort.Sort();
+            MergeSort<int> mergeSort = new();
+            mergeSort.Sort(_mergeSortSource);
         }
 
         [Benchmark]
         public void MsdRedixSort()
         {
-            MsdRedixSort msdRedixSort = new(_msdRedixSortSource);
-            msdRedixSort.Sort();
+            MsdRedixSort msdRedixSort = new();
+            msdRedixSort.Sort(_msdRedixSortSource);
         }
 
         [Benchmark]
         public void QuickSort()
         {
-            QuickSort<int> quickSort = new(_quickSortSource);
-            quickSort.Sort();
+            QuickSort<int> quickSort = new();
+            quickSort.Sort(_quickSortSource);
         }
 
         [Benchmark]
         public void SelectionSort()
         {
-            SelectionSort<int> selectionSort = new(_selectionSortSource);
-            selectionSort.Sort();
+            SelectionSort<int> selectionSort = new();
+            selectionSort.Sort(_selectionSortSource);
         }
 
         [Benchmark]
         public void ShellSort()
         {
-            ShellSort<int> shellSort = new(_shellSortSource);
-            shellSort.Sort();
+            ShellSort<int> shellSort = new();
+            shellSort.Sort(_shellSortSource);
         }
 
         [Benchmark]
         public void TreeSort()
         {
-            TreeSort<int> treeSort = new(_treeSortSource);
-            treeSort.Sort();
+            TreeSort<int> treeSort = new();
+            treeSort.Sort(_treeSortSource);
         }
     }
 }

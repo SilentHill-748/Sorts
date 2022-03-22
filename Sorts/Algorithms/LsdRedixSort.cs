@@ -6,36 +6,33 @@ namespace Sorts.Algorithms
 {
     public class LsdRedixSort : SortBase<int>
     {
-        public LsdRedixSort(List<int> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<int> collection)
         {
+            Collection = collection;
+
             List<List<int>> numberClasses = InitNumberClasses();
 
-            int numOfDigs = (int)Math.Log10(_list.Max()) + 1;
+            int numOfDigs = (int)Math.Log10(collection.Max()) + 1;
 
             FillNumberClasses(numberClasses, numOfDigs);
-
-            SortedCollection = _list;
         }
 
         private void FillNumberClasses(List<List<int>> numberClasses, int numOfDigs)
         {
             for (int i = 0; i < numOfDigs; i++)
             {
-                for (int j = 0; j < _list.Count; j++)
+                for (int j = 0; j < Collection.Count; j++)
                 {
                     int rank = Convert.ToInt32(
                         Math.Truncate(
-                            _list[j] % 
+                            Collection[j] % 
                             Math.Pow(10, i + 1) / 
                             Math.Pow(10, i)));
 
-                    numberClasses[rank].Add(_list[j]);
+                    numberClasses[rank].Add(Collection[j]);
                 }
 
-                _list = GetNewArray(numberClasses);
+                Collection = GetNewArray(numberClasses);
             }
         }
 

@@ -6,13 +6,10 @@ namespace Sorts.Algorithms
     public class QuickSort<T> : SortBase<T>
         where T : IComparable<T>
     {
-        public QuickSort(List<T> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<T> collection)
         {
-            Sort(0, _list.Count - 1);
-            SortedCollection = _list;
+            Collection = collection;
+            Sort(0, collection.Count - 1);
         }
 
         private void Sort(int left, int right)
@@ -27,21 +24,21 @@ namespace Sorts.Algorithms
         private int Partition(int left, int right)
         {
             Random rnd = new();
-            T pivotVal = _list[rnd.Next(left, right + 1)];
+            T pivotVal = Collection[rnd.Next(left, right + 1)];
 
             while (left < right)
             {
-                while (_list[left].CompareTo(pivotVal) == -1)
+                while (Collection[left].CompareTo(pivotVal) == -1)
                     left++;
 
-                while (_list[right].CompareTo(pivotVal) == 1)
+                while (Collection[right].CompareTo(pivotVal) == 1)
                     right--;
 
                 if (left < right)
-                    (_list[right], _list[left]) = (_list[left], _list[right]);
+                    Swap(left, right);
 
                 // Ignore duplicates
-                if (_list[left].CompareTo(_list[right]) == 0)
+                if (Collection[left].CompareTo(Collection[right]) == 0)
                     right--;
             }
 

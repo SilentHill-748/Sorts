@@ -9,12 +9,9 @@ namespace Sorts.Algorithms
     public class HeapSort<T> : SortBase<T>
         where T : IComparable<T>
     {
-        public HeapSort(List<T> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<T> collection)
         {
-            SortedCollection = new BinaryHeap<T>(_list).Order().ToList();
+            Collection = new BinaryHeap<T>(collection).Order().ToList();
         }
     }
 }

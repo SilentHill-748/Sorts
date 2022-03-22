@@ -9,15 +9,11 @@ namespace Sorts.Algorithms
         private List<List<int>>? _numberClasses;
 
 
-        public MsdRedixSort(List<int> list) : base(list) { }
-
-
-        public override void Sort()
+        public override void Sort(List<int> collection)
         {
-            int numOfDigs = (int)Math.Log10(_list.Max()) + 1;
+            int numOfDigs = (int)Math.Log10(collection.Max()) + 1;
 
-            SortedCollection = SortCollection(_list, numOfDigs - 1);
-
+            Collection = SortCollection(collection, numOfDigs - 1);
         }
 
         private List<int> SortCollection(List<int> list, int step)
