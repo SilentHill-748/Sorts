@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Sorts.Benchmarks;
-using Sorts.Algorithms;
+﻿using Sorts.Benchmarks;
 
 using BenchmarkDotNet.Running;
 
@@ -12,7 +8,7 @@ namespace Sorts
     {
         static void Main(string[] args)
         {
-            BenchmarkRunner.Run<SortBenchmark>();
+            BenchmarkRunner.Run<SortBenchmarkRandom>();
         }
     }
 }
